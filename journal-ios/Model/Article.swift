@@ -11,7 +11,7 @@ import Firebase
 
 
 struct Article {
-    var id: String?
+//    var id: String?
     var title: String?
     var content: String?
 }

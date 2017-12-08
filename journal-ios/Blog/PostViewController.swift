@@ -11,8 +11,8 @@ import Firebase
 
 class PostViewController: UIViewController {
 
-    var currentUserName: String?
-    let ref = Database.database().reference(fromURL: "https://chatroom-1fd12.firebaseio.com/")
+    var newArticle: Article?
+    var articles: [Article] = []
     
     let pictureContainerImageView: UIImageView = {
         let imageView = UIImageView()
@@ -71,25 +71,36 @@ class PostViewController: UIViewController {
             return
         }
         
-//        let ref = Database.database().reference(fromURL: "https://chatroom-1fd12.firebaseio.com/")
-        let values = ["title": title, "content": content]
+        let article = Article(title: title, content: content)
+        self.newArticle = article
         
-        if title != "" {
-            ref.child("posts").childByAutoId().setValue(values)
-//            ref.child("posts").childByAutoId().onDisconnectSetValue(values)
-            
+
+        print(article)
+        
+////        let ref = Database.database().reference(fromURL: "https://chatroom-1fd12.firebaseio.com/")
+//        let values = ["title": title, "content": content]
+//
+//        if title != "" {
+//            ref.child("posts").childByAutoId().setValue(values)
+////            ref.child("posts").childByAutoId().onDisconnectSetValue(values)
+//
+//        } else {
+//            // TODO: -warning user to type in title
+//        }
+        
+        if let articlesTableViewController = self.navigationController?.viewControllers[0] as? ArticlesTableViewController {
+            articlesTableViewController.newArticle = self.newArticle
+            self.navigationController?.popViewController(animated: true)
         } else {
-            // TODO: -warning user to type in title
+            print("222")
         }
-        
-        self.dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Firebase Offline Setup
-        ref.keepSynced(true)
+//        ref.keepSynced(true)
 
         
         self.view.backgroundColor = UIColor.white
@@ -98,7 +109,7 @@ class PostViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         
         //add addANewArticle navigationItem at leftside
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action: #selector(dismiss(sender:)))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action: #selector(back(sender:)))
         
         setupPictureContainerImageView()
         setupInputsContainerView()
@@ -151,8 +162,8 @@ class PostViewController: UIViewController {
         postButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
     }
     
-    @objc func dismiss(sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
+    @objc func back(sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     //get the status bar to white

@@ -11,7 +11,8 @@ import Firebase
 
 class ArticlesTableViewController: UITableViewController {
     
-    var articleList = [Article]()
+    var newArticle: Article?
+    var articles: [Article] = []
     let cellId = "cellId"
     let ref = Database.database().reference(fromURL: "https://chatroom-1fd12.firebaseio.com/")
     
@@ -34,18 +35,22 @@ class ArticlesTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        if let newArticle = self.newArticle {
+            self.articles.insert(newArticle, at: 0)
+            print("OO\(articles)")
+        }
         
         
-        fetchArticle()
-        test()
+//        fetchArticle()
+//        test()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return articleList.count
+        return articles.count
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 86
+        return 212
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -54,9 +59,12 @@ class ArticlesTableViewController: UITableViewController {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? ArticleCell {
 
-            let article = articleList[indexPath.row]
-            cell.textLabel?.text = article.title
-            cell.detailTextLabel?.text = article.content
+            
+            let article = articles[0]
+
+            
+            cell.titleLabel.text = article.title
+            cell.pictureImageView.image = #imageLiteral(resourceName: "icon_photo")
 
             cell.tag = indexPath.row
 
@@ -93,7 +101,7 @@ class ArticlesTableViewController: UITableViewController {
                     article.title = title
                     article.content = content
                     
-                    self.articleList.insert(article, at: 0)
+                    self.articles.insert(article, at: 0)
                     
                     DispatchQueue.main.async {
                         //this will crash because of background thread, so put it in async
@@ -106,8 +114,9 @@ class ArticlesTableViewController: UITableViewController {
     
     @objc func addANewArticle(sender: UIBarButtonItem) {
         let postViewController = PostViewController()
-        let navController = UINavigationController(rootViewController: postViewController)
-        present(navController, animated: true, completion: nil)
+        self.navigationController?.pushViewController(postViewController, animated: true)
+//        let navController = UINavigationController(rootViewController: postViewController)
+//        present(navController, animated: true, completion: nil)
     }
 
     
