@@ -1,0 +1,9 @@
+//
+//  ArticleTableViewCell.swift
+//  journal-ios
+//
+//  Created by riverciao on 2017/12/8.
+//  Copyright © 2017年 riverciao. All rights reserved.
+//
+
+import Foundation

@@ -7,25 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F4CA2C91FDA7F7D006DAFFC /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4CA2C81FDA7F7D006DAFFC /* ArticleTableViewCell.swift */; };
 		5F8E0C3E1FDA6E63000B4651 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8E0C211FDA6E62000B4651 /* AppDelegate.swift */; };
 		5F8E0C3F1FDA6E63000B4651 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F8E0C221FDA6E62000B4651 /* Assets.xcassets */; };
 		5F8E0C401FDA6E63000B4651 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F8E0C231FDA6E62000B4651 /* LaunchScreen.storyboard */; };
 		5F8E0C411FDA6E63000B4651 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F8E0C251FDA6E62000B4651 /* Main.storyboard */; };
 		5F8E0C421FDA6E63000B4651 /* ArticlesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8E0C281FDA6E62000B4651 /* ArticlesTableViewController.swift */; };
 		5F8E0C431FDA6E63000B4651 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8E0C291FDA6E62000B4651 /* PostViewController.swift */; };
-		5F8E0C441FDA6E63000B4651 /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8E0C2B1FDA6E62000B4651 /* ChatLogController.swift */; };
-		5F8E0C451FDA6E63000B4651 /* ChatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8E0C2C1FDA6E62000B4651 /* ChatTableViewController.swift */; };
-		5F8E0C461FDA6E63000B4651 /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8E0C2D1FDA6E62000B4651 /* UserTableViewController.swift */; };
 		5F8E0C471FDA6E63000B4651 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F8E0C2E1FDA6E62000B4651 /* GoogleService-Info.plist */; };
-		5F8E0C491FDA6E63000B4651 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8E0C311FDA6E62000B4651 /* LandingViewController.swift */; };
 		5F8E0C4A1FDA6E63000B4651 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8E0C331FDA6E62000B4651 /* Article.swift */; };
-		5F8E0C4B1FDA6E63000B4651 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8E0C341FDA6E62000B4651 /* Message.swift */; };
-		5F8E0C4C1FDA6E63000B4651 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8E0C351FDA6E62000B4651 /* User.swift */; };
-		5F8E0C4D1FDA6E63000B4651 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8E0C371FDA6E62000B4651 /* TabBarController.swift */; };
-		5F8E0C4E1FDA6E63000B4651 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8E0C381FDA6E62000B4651 /* TabBarItem.swift */; };
-		5F8E0C4F1FDA6E63000B4651 /* TabBarItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8E0C391FDA6E62000B4651 /* TabBarItemType.swift */; };
 		5F8E0C501FDA6E63000B4651 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8E0C3B1FDA6E62000B4651 /* UIColor.swift */; };
-		5F8E0C511FDA6E63000B4651 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8E0C3D1FDA6E62000B4651 /* UserCell.swift */; };
 		5F8E0C531FDA6F9E000B4651 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F8E0C521FDA6F9E000B4651 /* Info.plist */; };
 		940305328B7CCBF433051BAA /* Pods_journal_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B596FFD14696527276EEBF45 /* Pods_journal_ios.framework */; };
 /* End PBXBuildFile section */
@@ -33,25 +24,16 @@
 /* Begin PBXFileReference section */
 		11BAF0316F1E6AFC3B07F736 /* Pods-journal-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-journal-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-journal-ios/Pods-journal-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		5F30B4C01FDA1FCA00D5027D /* journal-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "journal-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F4CA2C81FDA7F7D006DAFFC /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		5F8E0C211FDA6E62000B4651 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F8E0C221FDA6E62000B4651 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F8E0C241FDA6E62000B4651 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5F8E0C261FDA6E62000B4651 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5F8E0C281FDA6E62000B4651 /* ArticlesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesTableViewController.swift; sourceTree = "<group>"; };
 		5F8E0C291FDA6E62000B4651 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
-		5F8E0C2B1FDA6E62000B4651 /* ChatLogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
-		5F8E0C2C1FDA6E62000B4651 /* ChatTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewController.swift; sourceTree = "<group>"; };
-		5F8E0C2D1FDA6E62000B4651 /* UserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
 		5F8E0C2E1FDA6E62000B4651 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		5F8E0C311FDA6E62000B4651 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		5F8E0C331FDA6E62000B4651 /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
-		5F8E0C341FDA6E62000B4651 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		5F8E0C351FDA6E62000B4651 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		5F8E0C371FDA6E62000B4651 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		5F8E0C381FDA6E62000B4651 /* TabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
-		5F8E0C391FDA6E62000B4651 /* TabBarItemType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItemType.swift; sourceTree = "<group>"; };
 		5F8E0C3B1FDA6E62000B4651 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		5F8E0C3D1FDA6E62000B4651 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		5F8E0C521FDA6F9E000B4651 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6ED7F87B543CD7F6D2628D8 /* Pods-journal-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-journal-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-journal-ios/Pods-journal-ios.release.xcconfig"; sourceTree = "<group>"; };
 		B596FFD14696527276EEBF45 /* Pods_journal_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_journal_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,12 +77,9 @@
 				5F8E0C231FDA6E62000B4651 /* LaunchScreen.storyboard */,
 				5F8E0C251FDA6E62000B4651 /* Main.storyboard */,
 				5F8E0C271FDA6E62000B4651 /* Blog */,
-				5F8E0C2A1FDA6E62000B4651 /* Chat */,
 				5F8E0C2E1FDA6E62000B4651 /* GoogleService-Info.plist */,
 				5F8E0C521FDA6F9E000B4651 /* Info.plist */,
-				5F8E0C301FDA6E62000B4651 /* Landing */,
 				5F8E0C321FDA6E62000B4651 /* Model */,
-				5F8E0C361FDA6E62000B4651 /* Tab Bar */,
 				5F8E0C3A1FDA6E62000B4651 /* UIColor */,
 				5F8E0C3C1FDA6E62000B4651 /* View */,
 			);
@@ -116,42 +95,12 @@
 			path = Blog;
 			sourceTree = "<group>";
 		};
-		5F8E0C2A1FDA6E62000B4651 /* Chat */ = {
-			isa = PBXGroup;
-			children = (
-				5F8E0C2B1FDA6E62000B4651 /* ChatLogController.swift */,
-				5F8E0C2C1FDA6E62000B4651 /* ChatTableViewController.swift */,
-				5F8E0C2D1FDA6E62000B4651 /* UserTableViewController.swift */,
-			);
-			path = Chat;
-			sourceTree = "<group>";
-		};
-		5F8E0C301FDA6E62000B4651 /* Landing */ = {
-			isa = PBXGroup;
-			children = (
-				5F8E0C311FDA6E62000B4651 /* LandingViewController.swift */,
-			);
-			path = Landing;
-			sourceTree = "<group>";
-		};
 		5F8E0C321FDA6E62000B4651 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				5F8E0C331FDA6E62000B4651 /* Article.swift */,
-				5F8E0C341FDA6E62000B4651 /* Message.swift */,
-				5F8E0C351FDA6E62000B4651 /* User.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		5F8E0C361FDA6E62000B4651 /* Tab Bar */ = {
-			isa = PBXGroup;
-			children = (
-				5F8E0C371FDA6E62000B4651 /* TabBarController.swift */,
-				5F8E0C381FDA6E62000B4651 /* TabBarItem.swift */,
-				5F8E0C391FDA6E62000B4651 /* TabBarItemType.swift */,
-			);
-			path = "Tab Bar";
 			sourceTree = "<group>";
 		};
 		5F8E0C3A1FDA6E62000B4651 /* UIColor */ = {
@@ -165,7 +114,7 @@
 		5F8E0C3C1FDA6E62000B4651 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5F8E0C3D1FDA6E62000B4651 /* UserCell.swift */,
+				5F4CA2C81FDA7F7D006DAFFC /* ArticleTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -326,21 +275,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F8E0C4F1FDA6E63000B4651 /* TabBarItemType.swift in Sources */,
 				5F8E0C501FDA6E63000B4651 /* UIColor.swift in Sources */,
-				5F8E0C441FDA6E63000B4651 /* ChatLogController.swift in Sources */,
-				5F8E0C491FDA6E63000B4651 /* LandingViewController.swift in Sources */,
-				5F8E0C4D1FDA6E63000B4651 /* TabBarController.swift in Sources */,
 				5F8E0C431FDA6E63000B4651 /* PostViewController.swift in Sources */,
-				5F8E0C4B1FDA6E63000B4651 /* Message.swift in Sources */,
 				5F8E0C421FDA6E63000B4651 /* ArticlesTableViewController.swift in Sources */,
-				5F8E0C511FDA6E63000B4651 /* UserCell.swift in Sources */,
-				5F8E0C4E1FDA6E63000B4651 /* TabBarItem.swift in Sources */,
 				5F8E0C4A1FDA6E63000B4651 /* Article.swift in Sources */,
 				5F8E0C3E1FDA6E63000B4651 /* AppDelegate.swift in Sources */,
-				5F8E0C461FDA6E63000B4651 /* UserTableViewController.swift in Sources */,
-				5F8E0C4C1FDA6E63000B4651 /* User.swift in Sources */,
-				5F8E0C451FDA6E63000B4651 /* ChatTableViewController.swift in Sources */,
+				5F4CA2C91FDA7F7D006DAFFC /* ArticleTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
