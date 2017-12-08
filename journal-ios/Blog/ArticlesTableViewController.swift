@@ -24,13 +24,10 @@ class ArticlesTableViewController: UITableViewController {
         postsRef.keepSynced(true)
 
         
-        //add Logout navigationItem at laftside
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout(sender:)))
-        
         //add addANewArticle navigationItem at rightside
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(addANewArticle(sender:)))
         
-        checkIfUserIsLoggedIn()
+//        checkIfUserIsLoggedIn()
         
     }
     
@@ -110,40 +107,12 @@ class ArticlesTableViewController: UITableViewController {
         }
     }
     
-    func checkIfUserIsLoggedIn() {
-        if Auth.auth().currentUser?.uid == nil {
-            perform(#selector(handleLogout(sender:)), with: nil, afterDelay: 0)
-        } else {
-            let uid = Auth.auth().currentUser?.uid
-            Database.database().reference().child("users").child(uid!).observe( .value, with: { (snapshot) in
-                
-                if let dictionary = snapshot.value as? [String: AnyObject] {
-                    self.navigationItem.title = dictionary["name"] as? String
-                }
-
-                
-            })
-        }
-    }
-    
     @objc func addANewArticle(sender: UIBarButtonItem) {
         let postViewController = PostViewController()
         let navController = UINavigationController(rootViewController: postViewController)
         present(navController, animated: true, completion: nil)
     }
-    
-    @objc func handleLogout(sender: UIBarButtonItem? = nil) {
-        
-        do {
-            try Auth.auth().signOut()
-        } catch let logoutError {
-            print(logoutError)
-        }
-        
-        // switch to LoginViewController()
-        let landingViewController = LandingViewController()
-        present(landingViewController, animated: true, completion: nil)
-    }
+
     
 }
 
