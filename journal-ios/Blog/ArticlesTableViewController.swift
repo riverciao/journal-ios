@@ -11,13 +11,15 @@ import Firebase
 
 class ArticlesTableViewController: UITableViewController {
     
-    var newArticle: Article?
+    var newArticle = Article()
     var articles: [Article] = []
     let cellId = "cellId"
     let ref = Database.database().reference(fromURL: "https://chatroom-1fd12.firebaseio.com/")
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = "My Journals"
         
         tableView.register(ArticleCell.self, forCellReuseIdentifier: cellId)
         
@@ -28,17 +30,22 @@ class ArticlesTableViewController: UITableViewController {
         //add addANewArticle navigationItem at rightside
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(addANewArticle(sender:)))
         
-//        checkIfUserIsLoggedIn()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let newArticle = self.newArticle {
-            self.articles.insert(newArticle, at: 0)
-            print("OO\(articles)")
-        }
+        
+        self.articles.insert(newArticle, at: 0)
+        print("OO\(articles)")
+        print("OOOO\(articles.count)")
+        print("OOOO\(articles[0].title)")
+        
+        self.tableView.reloadData()
+//        if let newArticle = self.newArticle {
+//
+//        }
         
         
 //        fetchArticle()
@@ -46,7 +53,9 @@ class ArticlesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return articles.count
+        
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -59,14 +68,13 @@ class ArticlesTableViewController: UITableViewController {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? ArticleCell {
 
+            let article = articles[indexPath.row]
             
-            let article = articles[0]
-
-            
-            cell.titleLabel.text = article.title
-            cell.pictureImageView.image = #imageLiteral(resourceName: "icon_photo")
-
-            cell.tag = indexPath.row
+            if let title = article.title {
+                cell.pictureImageView.image = #imageLiteral(resourceName: "icon_photo")
+                cell.titleLabel.text = title
+            }
+//                cell.tag = indexPath.row
 
             articleCell = cell
             

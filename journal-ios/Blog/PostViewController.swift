@@ -11,7 +11,7 @@ import Firebase
 
 class PostViewController: UIViewController {
 
-    var newArticle: Article?
+    var newArticle = Article()
     var articles: [Article] = []
     
     let pictureContainerImageView: UIImageView = {

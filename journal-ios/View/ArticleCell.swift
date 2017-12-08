@@ -39,7 +39,7 @@ class ArticleCell: UITableViewCell {
         addSubview(titleLabel)
         
         titleLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 30).isActive = true
-        titleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 19.8).isActive = true
+        titleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -19.8).isActive = true
         titleLabel.widthAnchor.constraint(equalToConstant: 315).isActive = true
         titleLabel.heightAnchor.constraint(equalTo:(textLabel?.heightAnchor)!).isActive = true
     }
