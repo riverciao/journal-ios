@@ -14,11 +14,20 @@ class PostViewController: UIViewController {
     var currentUserName: String?
     let ref = Database.database().reference(fromURL: "https://chatroom-1fd12.firebaseio.com/")
     
+    let pictureContainerImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.backgroundColor = UIColor(r: 26, g: 34, b: 38)
+        imageView.image = #imageLiteral(resourceName: "icon_photo").withRenderingMode(.alwaysTemplate)
+        imageView.tintColor = UIColor.white
+        imageView.contentMode = .center
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     let inputsContainerView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.white
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 5
         return view
     }()
     
@@ -31,7 +40,7 @@ class PostViewController: UIViewController {
     
     let titleSeparatorView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(r: 220, g: 220, b: 220)
+        view.backgroundColor = UIColor(r: 171, g: 179, b: 176)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -45,10 +54,11 @@ class PostViewController: UIViewController {
     
     lazy var postButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor(r: 80, g: 101, b: 161)
-        button.setTitle("Post", for: .normal)
+        button.backgroundColor = UIColor(r: 237, g: 96, b: 81)
+        button.setTitle("Save", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.layer.cornerRadius = 22
         button.translatesAutoresizingMaskIntoConstraints = false
         
         button.addTarget(self, action: #selector(postANewArticle(sender:)), for: .touchUpInside)
@@ -86,64 +96,66 @@ class PostViewController: UIViewController {
         ref.keepSynced(true)
 
         
-        view.backgroundColor = UIColor(r: 61, g: 91, b: 151)
+        self.view.backgroundColor = UIColor.white
         
-        view.addSubview(inputsContainerView)
-        view.addSubview(postButton)
+        //TODO: hide nav bar but show button
+        self.navigationController?.navigationBar.isTranslucent = true
         
+        //add addANewArticle navigationItem at leftside
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action: #selector(dismiss(sender:)))
+        
+        setupPictureContainerImageView()
         setupInputsContainerView()
         setupPostButton()
-        
-        //add Back navigationItem at laftside
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(backToArticleList(sender:)))
-        
-        getAuthorName()
     }
     
-    func getAuthorName() {
-        let uid = Auth.auth().currentUser?.uid
-        Database.database().reference().child("users").child(uid!).observe(.value) { (snapshot) in
-            
-            if let dictionary  = snapshot.value as? [String: AnyObject] {
-                self.currentUserName = dictionary["name"] as? String
-            }
-        }
-    }
-    
-    func setupPostButton() {
-        postButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        postButton.topAnchor.constraint(equalTo: inputsContainerView.bottomAnchor, constant: 12).isActive = true
-        postButton.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor).isActive = true
-        postButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    private func setupPictureContainerImageView() {
+        view.addSubview(pictureContainerImageView)
+        
+        pictureContainerImageView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+        pictureContainerImageView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        pictureContainerImageView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        pictureContainerImageView.heightAnchor.constraint(equalToConstant: 375).isActive = true
     }
     
     func setupInputsContainerView() {
+        view.addSubview(inputsContainerView)
+        
         inputsContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        inputsContainerView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        inputsContainerView.widthAnchor.constraint(equalToConstant: view.bounds.width - 24).isActive = true
-        inputsContainerView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        inputsContainerView.topAnchor.constraint(equalTo: pictureContainerImageView.bottomAnchor).isActive = true
+        inputsContainerView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        inputsContainerView.heightAnchor.constraint(equalToConstant: 228).isActive = true
         
         inputsContainerView.addSubview(titleTextField)
         inputsContainerView.addSubview(contentTextField)
         inputsContainerView.addSubview(titleSeparatorView)
         
-        titleTextField.leftAnchor.constraint(equalTo: inputsContainerView.leftAnchor, constant: 12).isActive = true
-        titleTextField.topAnchor.constraint(equalTo: inputsContainerView.topAnchor).isActive = true
-        titleTextField.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor).isActive = true
+        titleTextField.centerXAnchor.constraint(equalTo: inputsContainerView.centerXAnchor).isActive = true
+        titleTextField.topAnchor.constraint(equalTo: inputsContainerView.topAnchor, constant: 10).isActive = true
+        titleTextField.widthAnchor.constraint(equalToConstant: 331).isActive = true
         titleTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: 1/4).isActive = true
         
-        titleSeparatorView.leftAnchor.constraint(equalTo: inputsContainerView.leftAnchor).isActive = true
+        titleSeparatorView.centerXAnchor.constraint(equalTo: inputsContainerView.centerXAnchor).isActive = true
         titleSeparatorView.topAnchor.constraint(equalTo: titleTextField.bottomAnchor).isActive = true
-        titleSeparatorView.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor).isActive = true
+        titleSeparatorView.widthAnchor.constraint(equalToConstant: 331).isActive = true
         titleSeparatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
         
-        contentTextField.leftAnchor.constraint(equalTo: inputsContainerView.leftAnchor, constant: 12).isActive = true
+        contentTextField.centerXAnchor.constraint(equalTo: inputsContainerView.centerXAnchor).isActive = true
         contentTextField.topAnchor.constraint(equalTo: titleTextField.bottomAnchor).isActive = true
-        contentTextField.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor).isActive = true
+        contentTextField.widthAnchor.constraint(equalToConstant: 331).isActive = true
         contentTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: 3/4).isActive = true
     }
     
-    @objc func backToArticleList(sender: UIBarButtonItem) {
+    func setupPostButton() {
+        view.addSubview(postButton)
+        
+        postButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        postButton.topAnchor.constraint(equalTo: inputsContainerView.bottomAnchor, constant: 12).isActive = true
+        postButton.widthAnchor.constraint(equalToConstant: 160).isActive = true
+        postButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
+    }
+    
+    @objc func dismiss(sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
     
