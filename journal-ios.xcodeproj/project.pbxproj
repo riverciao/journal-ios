@@ -73,26 +73,26 @@
 			isa = PBXGroup;
 			children = (
 				5F8E0C211FDA6E62000B4651 /* AppDelegate.swift */,
-				5F8E0C221FDA6E62000B4651 /* Assets.xcassets */,
-				5F8E0C231FDA6E62000B4651 /* LaunchScreen.storyboard */,
-				5F8E0C251FDA6E62000B4651 /* Main.storyboard */,
-				5F8E0C271FDA6E62000B4651 /* Blog */,
-				5F8E0C2E1FDA6E62000B4651 /* GoogleService-Info.plist */,
-				5F8E0C521FDA6F9E000B4651 /* Info.plist */,
+				5F8E0C271FDA6E62000B4651 /* Article */,
 				5F8E0C321FDA6E62000B4651 /* Model */,
 				5F8E0C3A1FDA6E62000B4651 /* UIColor */,
 				5F8E0C3C1FDA6E62000B4651 /* View */,
+				5F8E0C2E1FDA6E62000B4651 /* GoogleService-Info.plist */,
+				5F8E0C521FDA6F9E000B4651 /* Info.plist */,
+				5F8E0C221FDA6E62000B4651 /* Assets.xcassets */,
+				5F8E0C231FDA6E62000B4651 /* LaunchScreen.storyboard */,
+				5F8E0C251FDA6E62000B4651 /* Main.storyboard */,
 			);
 			path = "journal-ios";
 			sourceTree = "<group>";
 		};
-		5F8E0C271FDA6E62000B4651 /* Blog */ = {
+		5F8E0C271FDA6E62000B4651 /* Article */ = {
 			isa = PBXGroup;
 			children = (
 				5F8E0C281FDA6E62000B4651 /* ArticlesTableViewController.swift */,
 				5F8E0C291FDA6E62000B4651 /* PostViewController.swift */,
 			);
-			path = Blog;
+			path = Article;
 			sourceTree = "<group>";
 		};
 		5F8E0C321FDA6E62000B4651 /* Model */ = {

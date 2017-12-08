@@ -16,7 +16,6 @@ class ArticlesTableViewController: UITableViewController {
     var images: [UIImage] = []
     var articles: [Article] = []
     let cellId = "cellId"
-    let ref = Database.database().reference(fromURL: "https://chatroom-1fd12.firebaseio.com/")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +30,7 @@ class ArticlesTableViewController: UITableViewController {
         
         //add addANewArticle navigationItem at rightside
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(addANewArticle(sender:)))
-        
-        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,6 +42,11 @@ class ArticlesTableViewController: UITableViewController {
         
         self.tableView.reloadData()
 
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

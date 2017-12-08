@@ -21,6 +21,7 @@ class ArticleCell: UITableViewCell {
     
     let pictureImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.layer.cornerRadius = 8
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
