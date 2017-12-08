@@ -66,21 +66,17 @@ class PostViewController: UIViewController {
     }()
     
     @objc func postANewArticle(sender: UIButton) {
-        guard let title = titleTextField.text, let content = contentTextField.text, let author = currentUserName else {
+        guard let title = titleTextField.text, let content = contentTextField.text else {
             print("Form is not valid")
             return
         }
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
-        let dateString = dateFormatter.string(from: Date())
-        
 //        let ref = Database.database().reference(fromURL: "https://chatroom-1fd12.firebaseio.com/")
-        let values = ["title": title, "content": content, "date": dateString, "author": author]
+        let values = ["title": title, "content": content]
         
         if title != "" {
-//            ref.child("posts").childByAutoId().setValue(values)
-            ref.child("posts").childByAutoId().onDisconnectSetValue(values)
+            ref.child("posts").childByAutoId().setValue(values)
+//            ref.child("posts").childByAutoId().onDisconnectSetValue(values)
             
         } else {
             // TODO: -warning user to type in title

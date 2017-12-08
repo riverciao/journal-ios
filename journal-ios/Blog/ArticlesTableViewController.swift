@@ -57,8 +57,7 @@ class ArticlesTableViewController: UITableViewController {
             let article = articleList[indexPath.row]
             cell.textLabel?.text = article.title
             cell.detailTextLabel?.text = article.content
-            cell.publishDateLabel.text = article.publishDate
-            cell.authorLabel.text = article.author
+
             cell.tag = indexPath.row
 
             articleCell = cell
@@ -83,9 +82,9 @@ class ArticlesTableViewController: UITableViewController {
         Database.database().reference().child("posts").observe( .childAdded) { (snapshots) in
 
             if let dictionary  = snapshots.value as? [String: AnyObject] {
-                if let title = dictionary["title"] as? String, let date = dictionary["date"] as? String, let content = dictionary["content"] as? String, let author = dictionary["author"] as? String {
+                if let title = dictionary["title"] as? String, let content = dictionary["content"] as? String {
                     
-                    let article = Article()
+                    var article = Article()
                     
                     // if use this setter, your app will crash if your class properties don't exactly match with the firebase dictionary keys
                     //article.setValuesForKeys(dictionary)
@@ -93,8 +92,6 @@ class ArticlesTableViewController: UITableViewController {
                     //safer way
                     article.title = title
                     article.content = content
-                    article.publishDate = date
-                    article.author = author
                     
                     self.articleList.insert(article, at: 0)
                     
