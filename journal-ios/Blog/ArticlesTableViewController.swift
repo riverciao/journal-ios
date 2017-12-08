@@ -12,6 +12,8 @@ import Firebase
 class ArticlesTableViewController: UITableViewController {
     
     var newArticle = Article()
+    var newImage = UIImage()
+    var images: [UIImage] = []
     var articles: [Article] = []
     let cellId = "cellId"
     let ref = Database.database().reference(fromURL: "https://chatroom-1fd12.firebaseio.com/")
@@ -38,6 +40,7 @@ class ArticlesTableViewController: UITableViewController {
         
         
         self.articles.insert(newArticle, at: 0)
+        self.images.insert(newImage, at: 0)
         
         self.tableView.reloadData()
 
@@ -60,9 +63,10 @@ class ArticlesTableViewController: UITableViewController {
         if let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? ArticleCell {
 
             let article = articles[indexPath.row]
+            let image = images[indexPath.row]
             
             if let title = article.title {
-                cell.pictureImageView.image = #imageLiteral(resourceName: "icon_photo")
+                cell.pictureImageView.image = image
                 cell.titleLabel.text = title
             }
 

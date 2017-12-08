@@ -86,6 +86,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         if let articlesTableViewController = self.navigationController?.viewControllers[0] as? ArticlesTableViewController {
             articlesTableViewController.newArticle = self.newArticle
+            articlesTableViewController.newImage = self.pictureContainerImageView.image!
             self.navigationController?.popViewController(animated: true)
         }
     }
@@ -182,7 +183,6 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             pictureContainerImageView.image = image
-//            scrollView.contentSize = imageView.bounds.size
             pictureContainerImageView.contentMode = .scaleAspectFill
         }
         
