@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class PostViewController: UIViewController {
+class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
 
     var newArticle = Article()
     var articles: [Article] = []
@@ -22,6 +22,15 @@ class PostViewController: UIViewController {
         imageView.contentMode = .center
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
+    }()
+    
+    lazy var pickAnImageButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor.clear
+        button.addTarget(self, action: #selector(goToPickAnImage(sender:)), for: .touchUpInside)
+        
+        return button
     }()
     
     let inputsContainerView: UIView = {
@@ -105,7 +114,16 @@ class PostViewController: UIViewController {
         pictureContainerImageView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
         pictureContainerImageView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         pictureContainerImageView.heightAnchor.constraint(equalToConstant: 375).isActive = true
+        
+        view.addSubview(pickAnImageButton)
+        
+        pickAnImageButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+        pickAnImageButton.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        pickAnImageButton.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        pickAnImageButton.heightAnchor.constraint(equalToConstant: 375).isActive = true
+        
     }
+    
     
     func setupInputsContainerView() {
         view.addSubview(inputsContainerView)
@@ -147,6 +165,30 @@ class PostViewController: UIViewController {
     @objc func back(sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    @objc func goToPickAnImage(sender: UIButton) {
+        openGallary()
+    }
+    
+    func openGallary() {
+        let image = UIImagePickerController()
+        image.delegate = self
+        image.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        image.allowsEditing = false
+        self.present(image, animated: true, completion: nil)
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            pictureContainerImageView.image = image
+//            scrollView.contentSize = imageView.bounds.size
+            pictureContainerImageView.contentMode = .scaleAspectFill
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
     //get the status bar to white
     override var preferredStatusBarStyle: UIStatusBarStyle {
