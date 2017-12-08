@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  journal-ios
+//  ChatRoom
 //
-//  Created by riverciao on 2017/12/8.
+//  Created by riverciao on 2017/11/24.
 //  Copyright © 2017年 riverciao. All rights reserved.
 //
 
@@ -19,10 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
+        //Firebase Offline Setup
+        Database.database().isPersistenceEnabled = true
+        
         window = UIWindow(frame: UIScreen.main.bounds)
-        
         window?.makeKeyAndVisible()
-        
         
         let articlesTableViewController = ArticlesTableViewController(style: .plain)
         

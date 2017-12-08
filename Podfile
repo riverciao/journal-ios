@@ -8,6 +8,8 @@ target 'journal-ios' do
   # Pods for journal-ios
   pod 'Firebase/Database'
   pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Storage'
   pod 'Nuke', '5.2'
 
 end
