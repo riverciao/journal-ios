@@ -20,9 +20,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         window = UIWindow(frame: UIScreen.main.bounds)
+        
         window?.makeKeyAndVisible()
         
-        window?.rootViewController = ViewController()
+        
+        let articlesTableViewController = ArticlesTableViewController(style: .plain)
+        
+        let navigationController = UINavigationController(
+            
+            rootViewController: articlesTableViewController
+            
+        )
+        
+        window?.rootViewController = navigationController
         
         return true
     }
