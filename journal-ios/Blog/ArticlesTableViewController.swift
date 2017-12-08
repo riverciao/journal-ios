@@ -38,18 +38,9 @@ class ArticlesTableViewController: UITableViewController {
         
         
         self.articles.insert(newArticle, at: 0)
-        print("OO\(articles)")
-        print("OOOO\(articles.count)")
-        print("OOOO\(articles[0].title)")
         
         self.tableView.reloadData()
-//        if let newArticle = self.newArticle {
-//
-//        }
-        
-        
-//        fetchArticle()
-//        test()
+
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -74,7 +65,6 @@ class ArticlesTableViewController: UITableViewController {
                 cell.pictureImageView.image = #imageLiteral(resourceName: "icon_photo")
                 cell.titleLabel.text = title
             }
-//                cell.tag = indexPath.row
 
             articleCell = cell
             
@@ -82,49 +72,10 @@ class ArticlesTableViewController: UITableViewController {
         return articleCell
     }
     
-    func test() {
-        
-        let ref = Database.database().reference().child("posts")
-        
-        ref.observe(.value, with: { (snapshot) in
-            
-            print("OOOO\(snapshot)")
-            
-        }, withCancel: nil)
-    }
-    
-    func fetchArticle() {
-        
-        Database.database().reference().child("posts").observe( .childAdded) { (snapshots) in
-
-            if let dictionary  = snapshots.value as? [String: AnyObject] {
-                if let title = dictionary["title"] as? String, let content = dictionary["content"] as? String {
-                    
-                    var article = Article()
-                    
-                    // if use this setter, your app will crash if your class properties don't exactly match with the firebase dictionary keys
-                    //article.setValuesForKeys(dictionary)
-                    
-                    //safer way
-                    article.title = title
-                    article.content = content
-                    
-                    self.articles.insert(article, at: 0)
-                    
-                    DispatchQueue.main.async {
-                        //this will crash because of background thread, so put it in async
-                        self.tableView.reloadData()
-                    }
-                }
-            }
-        }
-    }
     
     @objc func addANewArticle(sender: UIBarButtonItem) {
         let postViewController = PostViewController()
         self.navigationController?.pushViewController(postViewController, animated: true)
-//        let navController = UINavigationController(rootViewController: postViewController)
-//        present(navController, animated: true, completion: nil)
     }
 
     

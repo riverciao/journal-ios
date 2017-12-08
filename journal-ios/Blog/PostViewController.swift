@@ -73,34 +73,16 @@ class PostViewController: UIViewController {
         
         let article = Article(title: title, content: content)
         self.newArticle = article
-        
 
-        print(article)
-        
-////        let ref = Database.database().reference(fromURL: "https://chatroom-1fd12.firebaseio.com/")
-//        let values = ["title": title, "content": content]
-//
-//        if title != "" {
-//            ref.child("posts").childByAutoId().setValue(values)
-////            ref.child("posts").childByAutoId().onDisconnectSetValue(values)
-//
-//        } else {
-//            // TODO: -warning user to type in title
-//        }
         
         if let articlesTableViewController = self.navigationController?.viewControllers[0] as? ArticlesTableViewController {
             articlesTableViewController.newArticle = self.newArticle
             self.navigationController?.popViewController(animated: true)
-        } else {
-            print("222")
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //Firebase Offline Setup
-//        ref.keepSynced(true)
 
         
         self.view.backgroundColor = UIColor.white
