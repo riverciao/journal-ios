@@ -113,49 +113,9 @@ class ArticlesTableViewController: UITableViewController {
     
 }
 
-class ArticleCell: UITableViewCell {
-    var publishDateLabel = UILabel()
-    var authorLabel = UILabel()
-    var likeButton = UIButton(type: .custom)
-    
-    
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
-        
-        
-        publishDateLabel.translatesAutoresizingMaskIntoConstraints = false
-        authorLabel.translatesAutoresizingMaskIntoConstraints = false
-        likeButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        contentView.addSubview(publishDateLabel)
-        contentView.addSubview(authorLabel)
-        contentView.addSubview(likeButton)
-        
-        let image = UIImage(named: "icon-heart")?.withRenderingMode(.alwaysTemplate)
-        likeButton.setImage(image, for: .normal)
 
-        
-        likeButton.rightAnchor.constraint(equalTo: authorLabel.leftAnchor, constant: -2).isActive = true
-        likeButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -2).isActive = true
-        likeButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        likeButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
-        authorLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -2).isActive = true
-        authorLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -2).isActive = true
-        authorLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        authorLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        
-        publishDateLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -2).isActive = true
-        publishDateLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 2).isActive = true
-        publishDateLabel.widthAnchor.constraint(equalToConstant: 180).isActive = true
-        publishDateLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        
-    }
     
 
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
+
 
