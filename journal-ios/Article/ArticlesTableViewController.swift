@@ -93,6 +93,14 @@ class ArticlesTableViewController: UITableViewController {
         self.navigationController?.pushViewController(editPostViewController, animated: true)
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            CoreDataHandler.deleteObject(item: items[indexPath.row])
+            self.items = CoreDataHandler.fetchObject()!
+            self.tableView.reloadData()
+        }
+    }
+    
     
     @objc func addANewArticle(sender: UIBarButtonItem) {
         let postViewController = PostViewController()
