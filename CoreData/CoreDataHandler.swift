@@ -34,14 +34,12 @@ class CoreDataHandler: NSObject {
         }
     }
     
-    class func updateObject(title: String, content: String, image: Data) {
-        let context = getContext()
-        let entity = NSEntityDescription.entity(forEntityName: "Item", in: context)
-        let managedObject = NSManagedObject(entity: entity!, insertInto: context)
+    class func updateObject(object: Item, title: String, content: String, image: Data) {
+        let context = self.getContext()
         
-        managedObject.setValue(title, forKey: "title")
-        managedObject.setValue(content, forKey: "content")
-        managedObject.setValue(image, forKey: "image")
+        object.setValue(title, forKey: "title")
+        object.setValue(content, forKey: "content")
+        object.setValue(image, forKey: "image")
         
         do {
             try context.save()
@@ -86,12 +84,12 @@ class CoreDataHandler: NSObject {
         }
     }
     
-    class func filterData(selectedProductId: String) -> [Item]? {
+    class func filterData(selectedItemTimestamp: Date) -> [Item]? {
         let context = getContext()
         let fetchRequest: NSFetchRequest<Item> = Item.fetchRequest()
         var items: [Item] = []
         
-        let predicate = NSPredicate(format: "productId == %@", selectedProductId)
+        let predicate = NSPredicate(format: "timestamp == %@", selectedItemTimestamp as CVarArg)
         fetchRequest.predicate = predicate
         
         do {

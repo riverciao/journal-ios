@@ -76,18 +76,20 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
             return
         }
         
-        
         let article = Article(title: title, content: content)
         
         //handle image
         let image = self.pictureContainerImageView.image
         let imageData = UIImageJPEGRepresentation(image!, 1)
 
-        
-        if let title = article.title, let content = article.content, let imageData = imageData {
-            CoreDataHandler.updateObject(title: title, content: content, image: imageData)
+        if let timestamp = currentItem?.timestamp, let imageData = imageData, let title = article.title, let content = article.content {
+            let fetchResults = CoreDataHandler.filterData(selectedItemTimestamp: timestamp)
+            if let fetchResults =  fetchResults {
+                let managedObject = fetchResults[0]
+                CoreDataHandler.updateObject(object: managedObject, title: title, content: content, image: imageData)
+            }
         }
-        
+            
         self.navigationController?.popViewController(animated: true)
     }
     
