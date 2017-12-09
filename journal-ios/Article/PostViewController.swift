@@ -100,7 +100,9 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         self.view.backgroundColor = UIColor.white
         
-        //TODO: hide nav bar but show button
+        //hide nav bar but show button
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         
         //add addANewArticle navigationItem at leftside
