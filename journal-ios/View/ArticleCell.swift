@@ -21,7 +21,10 @@ class ArticleCell: UITableViewCell {
     
     let pictureImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.bounds = CGRect(x: 0, y: 0, width: 335, height: 140)
         imageView.layer.cornerRadius = 8
+        imageView.layer.masksToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -39,7 +42,7 @@ class ArticleCell: UITableViewCell {
     private func setupTitleLabel() {
         addSubview(titleLabel)
         
-        titleLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 30).isActive = true
+        titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         titleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -19.8).isActive = true
         titleLabel.widthAnchor.constraint(equalToConstant: 315).isActive = true
         titleLabel.heightAnchor.constraint(equalTo:(textLabel?.heightAnchor)!).isActive = true
@@ -48,7 +51,7 @@ class ArticleCell: UITableViewCell {
     private func setupPictureImageView() {
         addSubview(pictureImageView)
         
-        pictureImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
+        pictureImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         pictureImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
         pictureImageView.widthAnchor.constraint(equalToConstant: 335).isActive = true
         pictureImageView.heightAnchor.constraint(equalToConstant: 140).isActive = true
