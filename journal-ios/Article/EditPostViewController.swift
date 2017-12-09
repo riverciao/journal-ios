@@ -1,14 +1,14 @@
 //
-//  PostViewController.swift
-//  ChatRoom
+//  EditPostViewController.swift
+//  journal-ios
 //
-//  Created by riverciao on 2017/11/26.
+//  Created by riverciao on 2017/12/10.
 //  Copyright © 2017年 riverciao. All rights reserved.
 //
 
 import UIKit
 
-class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+class EditPostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
     let pictureContainerImageView: UIImageView = {
         let imageView = UIImageView()
@@ -38,7 +38,6 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     let titleTextField: UITextField = {
         let textFeild = UITextField()
-        textFeild.placeholder = "Title"
         textFeild.translatesAutoresizingMaskIntoConstraints = false
         return textFeild
     }()
@@ -52,7 +51,6 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     let contentTextField: UITextField = {
         let textFeild = UITextField()
-        textFeild.placeholder = "Content"
         textFeild.translatesAutoresizingMaskIntoConstraints = false
         return textFeild
     }()
@@ -60,17 +58,17 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     lazy var postButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor(r: 237, g: 96, b: 81)
-        button.setTitle("Save", for: .normal)
+        button.setTitle("Update Entry", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.layer.cornerRadius = 22
         button.translatesAutoresizingMaskIntoConstraints = false
         
-        button.addTarget(self, action: #selector(postANewArticle(sender:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(UpdateArticle(sender:)), for: .touchUpInside)
         return button
     }()
     
-    @objc func postANewArticle(sender: UIButton) {
+    @objc func UpdateArticle(sender: UIButton) {
         guard let title = titleTextField.text, let content = contentTextField.text else {
             print("Form is not valid")
             return
@@ -82,20 +80,17 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         //handle image
         let image = self.pictureContainerImageView.image
         let imageData = UIImageJPEGRepresentation(image!, 1)
-        
-        //handle timestamp
-        let timestamp = Int(Date().timeIntervalSinceNow)
+
         
         if let title = article.title, let content = article.content, let imageData = imageData {
-            CoreDataHandler.saveObject(title: title, content: content, image: imageData, timestamp: timestamp)
+            CoreDataHandler.updateObject(title: title, content: content, image: imageData)
         }
-
+        
         self.navigationController?.popViewController(animated: true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
         self.view.backgroundColor = UIColor.white
         
@@ -197,5 +192,5 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-
+    
 }

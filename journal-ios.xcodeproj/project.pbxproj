@@ -10,6 +10,7 @@
 		5F4CA2C91FDA7F7D006DAFFC /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4CA2C81FDA7F7D006DAFFC /* ArticleCell.swift */; };
 		5F4D50DD1FDC62D5004FEC81 /* CoreDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D50DC1FDC62D5004FEC81 /* CoreDataHandler.swift */; };
 		5F4D50E01FDC6335004FEC81 /* Journal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D50DE1FDC6335004FEC81 /* Journal.xcdatamodeld */; };
+		5F4D50E21FDC8085004FEC81 /* EditPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D50E11FDC8085004FEC81 /* EditPostViewController.swift */; };
 		5F8E0C3E1FDA6E63000B4651 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8E0C211FDA6E62000B4651 /* AppDelegate.swift */; };
 		5F8E0C3F1FDA6E63000B4651 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F8E0C221FDA6E62000B4651 /* Assets.xcassets */; };
 		5F8E0C401FDA6E63000B4651 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F8E0C231FDA6E62000B4651 /* LaunchScreen.storyboard */; };
@@ -29,6 +30,7 @@
 		5F4CA2C81FDA7F7D006DAFFC /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
 		5F4D50DC1FDC62D5004FEC81 /* CoreDataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHandler.swift; sourceTree = "<group>"; };
 		5F4D50DF1FDC6335004FEC81 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		5F4D50E11FDC8085004FEC81 /* EditPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPostViewController.swift; sourceTree = "<group>"; };
 		5F8E0C211FDA6E62000B4651 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F8E0C221FDA6E62000B4651 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F8E0C241FDA6E62000B4651 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			children = (
 				5F8E0C281FDA6E62000B4651 /* ArticlesTableViewController.swift */,
 				5F8E0C291FDA6E62000B4651 /* PostViewController.swift */,
+				5F4D50E11FDC8085004FEC81 /* EditPostViewController.swift */,
 			);
 			path = Article;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				5F8E0C421FDA6E63000B4651 /* ArticlesTableViewController.swift in Sources */,
 				5F8E0C4A1FDA6E63000B4651 /* Article.swift in Sources */,
 				5F8E0C3E1FDA6E63000B4651 /* AppDelegate.swift in Sources */,
+				5F4D50E21FDC8085004FEC81 /* EditPostViewController.swift in Sources */,
 				5F4CA2C91FDA7F7D006DAFFC /* ArticleCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

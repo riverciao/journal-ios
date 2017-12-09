@@ -17,7 +17,24 @@ class CoreDataHandler: NSObject {
     }
 
     
-    class func saveObject(title: String, content: String, image: Data) {
+    class func saveObject(title: String, content: String, image: Data, timestamp: Int) {
+        let context = getContext()
+        let entity = NSEntityDescription.entity(forEntityName: "Item", in: context)
+        let managedObject = NSManagedObject(entity: entity!, insertInto: context)
+        
+        managedObject.setValue(title, forKey: "title")
+        managedObject.setValue(content, forKey: "content")
+        managedObject.setValue(image, forKey: "image")
+        managedObject.setValue(timestamp, forKey: "timestamp")
+        
+        do {
+            try context.save()
+        } catch let error {
+            print("saveObject error: \(error)")
+        }
+    }
+    
+    class func updateObject(title: String, content: String, image: Data) {
         let context = getContext()
         let entity = NSEntityDescription.entity(forEntityName: "Item", in: context)
         let managedObject = NSManagedObject(entity: entity!, insertInto: context)

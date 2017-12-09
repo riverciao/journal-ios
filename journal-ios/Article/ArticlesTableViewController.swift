@@ -31,6 +31,13 @@ class ArticlesTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         items = CoreDataHandler.fetchObject()!
+        
+        //TODO: - adjust the order of journey
+//        self.items.sort(by: { (item1, item2) -> Bool in
+//
+//            return item2.timestamp > item1.timestamp
+//        })
+        
         self.tableView.reloadData()
 
     }
