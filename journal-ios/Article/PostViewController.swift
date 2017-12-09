@@ -84,10 +84,11 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         let imageData = UIImageJPEGRepresentation(image!, 1)
         
         //handle timestamp
-        let timestamp = Int(Date().timeIntervalSinceNow)
+        let timestamp = Date().timeIntervalSinceNow
+        let timestampDate = Date(timeIntervalSinceNow: timestamp)
         
         if let title = article.title, let content = article.content, let imageData = imageData {
-            CoreDataHandler.saveObject(title: title, content: content, image: imageData, timestamp: timestamp)
+            CoreDataHandler.saveObject(title: title, content: content, image: imageData, timestamp: timestampDate)
         }
 
         self.navigationController?.popViewController(animated: true)

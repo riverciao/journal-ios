@@ -17,7 +17,7 @@ class CoreDataHandler: NSObject {
     }
 
     
-    class func saveObject(title: String, content: String, image: Data, timestamp: Int) {
+    class func saveObject(title: String, content: String, image: Data, timestamp: Date) {
         let context = getContext()
         let entity = NSEntityDescription.entity(forEntityName: "Item", in: context)
         let managedObject = NSManagedObject(entity: entity!, insertInto: context)
@@ -55,7 +55,7 @@ class CoreDataHandler: NSObject {
         var items: [Item]? = nil
         let fetchRequest: NSFetchRequest<Item> = Item.fetchRequest()
         do {
-//            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "productPrice", ascending: false)]
+            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: false)]
             items = try context.fetch(fetchRequest)
             return items
         } catch let error {

@@ -13,6 +13,7 @@ import Firebase
 class ArticlesTableViewController: UITableViewController {
     
     var items: [Item] = []
+    var currentItem: Item?
     let cellId = "cellId"
     
     override func viewDidLoad() {
@@ -83,6 +84,13 @@ class ArticlesTableViewController: UITableViewController {
             
         }
         return articleCell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let editPostViewController = EditPostViewController()
+        self.currentItem = items[indexPath.row]
+        editPostViewController.currentItem = self.currentItem
+        self.navigationController?.pushViewController(editPostViewController, animated: true)
     }
     
     

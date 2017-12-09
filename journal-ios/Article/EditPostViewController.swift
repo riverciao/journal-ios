@@ -10,6 +10,8 @@ import UIKit
 
 class EditPostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
+    var currentItem: Item?
+    
     let pictureContainerImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = UIColor(r: 26, g: 34, b: 38)
@@ -113,6 +115,14 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
         pictureContainerImageView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         pictureContainerImageView.heightAnchor.constraint(equalToConstant: 375).isActive = true
         
+        pictureContainerImageView.bounds = CGRect(x: 0, y: 0, width: view.bounds.width, height: 375)
+        pictureContainerImageView.contentMode = .scaleAspectFill
+        if let imageData = self.currentItem?.image {
+            if let image = UIImage(data: imageData) {
+                pictureContainerImageView.image = image
+            }
+        }
+        
         view.addSubview(pickAnImageButton)
         
         pickAnImageButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
@@ -135,6 +145,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
         inputsContainerView.addSubview(contentTextField)
         inputsContainerView.addSubview(titleSeparatorView)
         
+        titleTextField.text = self.currentItem?.title
         titleTextField.centerXAnchor.constraint(equalTo: inputsContainerView.centerXAnchor).isActive = true
         titleTextField.topAnchor.constraint(equalTo: inputsContainerView.topAnchor, constant: 10).isActive = true
         titleTextField.widthAnchor.constraint(equalToConstant: 331).isActive = true
@@ -145,6 +156,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
         titleSeparatorView.widthAnchor.constraint(equalToConstant: 331).isActive = true
         titleSeparatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
         
+        contentTextField.text = self.currentItem?.content
         contentTextField.centerXAnchor.constraint(equalTo: inputsContainerView.centerXAnchor).isActive = true
         contentTextField.topAnchor.constraint(equalTo: titleTextField.bottomAnchor).isActive = true
         contentTextField.widthAnchor.constraint(equalToConstant: 331).isActive = true
