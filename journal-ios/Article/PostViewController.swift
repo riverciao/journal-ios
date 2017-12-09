@@ -7,12 +7,8 @@
 //
 
 import UIKit
-import Firebase
 
 class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
-
-    var newArticle: Article?
-    var articles: [Article] = []
     
     let pictureContainerImageView: UIImageView = {
         let imageView = UIImageView()
@@ -82,11 +78,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         
         let article = Article(title: title, content: content)
-        self.newArticle = article
         
-//        let img = UIImage(named: "f.png")
-//        let imgData = UIImageJPEGRepresentation(img!, 1)
-//        newUser.setValue(imgData, forKey: "photo")
         let image = self.pictureContainerImageView.image
         let imageData = UIImageJPEGRepresentation(image!, 1)
         
@@ -94,12 +86,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             CoreDataHandler.saveObject(title: title, content: content, image: imageData)
         }
 
-        
-        if let articlesTableViewController = self.navigationController?.viewControllers[0] as? ArticlesTableViewController {
-            articlesTableViewController.newArticle = self.newArticle
-            articlesTableViewController.newImage = self.pictureContainerImageView.image!
-            self.navigationController?.popViewController(animated: true)
-        }
+        self.navigationController?.popViewController(animated: true)
     }
     
     override func viewDidLoad() {
@@ -176,11 +163,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     @objc func back(sender: UIBarButtonItem) {
         
-        if let articlesTableViewController = self.navigationController?.viewControllers[0] as? ArticlesTableViewController {
-            articlesTableViewController.newArticle = nil
-            articlesTableViewController.newImage = nil
-            self.navigationController?.popViewController(animated: true)
-        }
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc func goToPickAnImage(sender: UIButton) {

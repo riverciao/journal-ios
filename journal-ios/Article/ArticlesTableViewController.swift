@@ -12,10 +12,6 @@ import Firebase
 
 class ArticlesTableViewController: UITableViewController {
     
-    var newArticle: Article?
-    var newImage: UIImage?
-    var images: [UIImage] = []
-    var articles: [Article] = []
     var items: [Item] = []
     let cellId = "cellId"
     
@@ -26,10 +22,6 @@ class ArticlesTableViewController: UITableViewController {
         
         tableView.register(ArticleCell.self, forCellReuseIdentifier: cellId)
         
-        let postsRef = Database.database().reference().child("posts")
-        postsRef.keepSynced(true)
-
-        
         //add addANewArticle navigationItem at rightside
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(addANewArticle(sender:)))
 
@@ -39,12 +31,6 @@ class ArticlesTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         items = CoreDataHandler.fetchObject()!
-        
-        if let newArticle = self.newArticle, let newImage = self.newImage {
-            self.articles.insert(newArticle, at: 0)
-            self.images.insert(newImage, at: 0)
-        }
-        
         self.tableView.reloadData()
 
     }
@@ -56,7 +42,6 @@ class ArticlesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-//        return articles.count
         return items.count
         
     }
