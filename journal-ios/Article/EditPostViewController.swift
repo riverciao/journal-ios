@@ -98,17 +98,22 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
         
         self.view.backgroundColor = UIColor.white
         
-        //hide nav bar but show button
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        
-        //add addANewArticle navigationItem at leftside
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action: #selector(back(sender:)))
-        
         setupPictureContainerImageView()
         setupInputsContainerView()
         setupPostButton()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        UIApplication.shared.statusBarStyle = .lightContent
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
+        
     }
     
     private func setupPictureContainerImageView() {
@@ -201,12 +206,6 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
         }
         
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    
-    //get the status bar to white
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
     }
     
 }

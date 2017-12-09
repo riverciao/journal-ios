@@ -23,6 +23,11 @@ class ArticlesTableViewController: UITableViewController {
         
         tableView.register(ArticleCell.self, forCellReuseIdentifier: cellId)
         
+        //hide nav bar but show button
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+
+        
         //add addANewArticle navigationItem at rightside
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(addANewArticle(sender:)))
 
