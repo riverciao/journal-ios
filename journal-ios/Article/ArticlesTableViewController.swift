@@ -11,8 +11,8 @@ import Firebase
 
 class ArticlesTableViewController: UITableViewController {
     
-    var newArticle = Article()
-    var newImage = UIImage()
+    var newArticle: Article?
+    var newImage: UIImage?
     var images: [UIImage] = []
     var articles: [Article] = []
     let cellId = "cellId"
@@ -36,9 +36,10 @@ class ArticlesTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        
-        self.articles.insert(newArticle, at: 0)
-        self.images.insert(newImage, at: 0)
+        if let newArticle = self.newArticle, let newImage = self.newImage {
+            self.articles.insert(newArticle, at: 0)
+            self.images.insert(newImage, at: 0)
+        }
         
         self.tableView.reloadData()
 

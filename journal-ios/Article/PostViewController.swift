@@ -11,7 +11,7 @@ import Firebase
 
 class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
 
-    var newArticle = Article()
+    var newArticle: Article?
     var articles: [Article] = []
     
     let pictureContainerImageView: UIImageView = {
@@ -164,7 +164,12 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     @objc func back(sender: UIBarButtonItem) {
-        self.navigationController?.popViewController(animated: true)
+        
+        if let articlesTableViewController = self.navigationController?.viewControllers[0] as? ArticlesTableViewController {
+            articlesTableViewController.newArticle = nil
+            articlesTableViewController.newImage = nil
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     @objc func goToPickAnImage(sender: UIButton) {
