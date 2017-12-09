@@ -15,15 +15,16 @@ class CoreDataHandler: NSObject {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
     }
+
     
-    class func saveObject(productId: String, productName: String, productPrice: Double) {
+    class func saveObject(title: String, content: String, image: Data) {
         let context = getContext()
         let entity = NSEntityDescription.entity(forEntityName: "Item", in: context)
         let managedObject = NSManagedObject(entity: entity!, insertInto: context)
         
-        managedObject.setValue(productId, forKey: "productId")
-        managedObject.setValue(productName, forKey: "productName")
-        managedObject.setValue(productPrice, forKey: "productPrice")
+        managedObject.setValue(title, forKey: "title")
+        managedObject.setValue(content, forKey: "content")
+        managedObject.setValue(image, forKey: "image")
         
         do {
             try context.save()

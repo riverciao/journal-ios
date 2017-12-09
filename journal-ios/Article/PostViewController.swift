@@ -80,8 +80,19 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             return
         }
         
+        
         let article = Article(title: title, content: content)
         self.newArticle = article
+        
+//        let img = UIImage(named: "f.png")
+//        let imgData = UIImageJPEGRepresentation(img!, 1)
+//        newUser.setValue(imgData, forKey: "photo")
+        let image = self.pictureContainerImageView.image
+        let imageData = UIImageJPEGRepresentation(image!, 1)
+        
+        if let title = article.title, let content = article.content, let imageData = imageData {
+            CoreDataHandler.saveObject(title: title, content: content, image: imageData)
+        }
 
         
         if let articlesTableViewController = self.navigationController?.viewControllers[0] as? ArticlesTableViewController {

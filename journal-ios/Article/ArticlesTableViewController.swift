@@ -9,12 +9,14 @@
 import UIKit
 import Firebase
 
+
 class ArticlesTableViewController: UITableViewController {
     
     var newArticle: Article?
     var newImage: UIImage?
     var images: [UIImage] = []
     var articles: [Article] = []
+    var items: [Item] = []
     let cellId = "cellId"
     
     override func viewDidLoad() {
@@ -36,6 +38,8 @@ class ArticlesTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        items = CoreDataHandler.fetchObject()!
+        
         if let newArticle = self.newArticle, let newImage = self.newImage {
             self.articles.insert(newArticle, at: 0)
             self.images.insert(newImage, at: 0)
@@ -52,7 +56,8 @@ class ArticlesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return articles.count
+//        return articles.count
+        return items.count
         
     }
     
@@ -65,13 +70,21 @@ class ArticlesTableViewController: UITableViewController {
         var articleCell = ArticleCell()
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? ArticleCell {
-
-            let article = articles[indexPath.row]
-            let image = images[indexPath.row]
             
-            if let title = article.title {
-                cell.pictureImageView.image = image
-                cell.titleLabel.text = title
+            let article = items[indexPath.row]
+            
+            
+            if items.count > indexPath.row {
+                
+                if let title = article.title {
+                    cell.titleLabel.text = title
+                }
+                
+                if let imageData = article.image {
+                    if let image = UIImage(data: imageData) {
+                        cell.pictureImageView.image = image
+                    }
+                }
             }
 
             articleCell = cell
