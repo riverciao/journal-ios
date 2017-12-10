@@ -45,6 +45,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     let titleSeparatorView: UIView = {
         let view = UIView()
+        //coolGrey
         view.backgroundColor = UIColor(r: 171, g: 179, b: 176)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
