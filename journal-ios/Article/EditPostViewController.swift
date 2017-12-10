@@ -58,7 +58,6 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
         let textView = UITextView()
         textView.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         textView.textColor = UIColor(r: 131, g: 156, b: 152)
-        
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     }()
