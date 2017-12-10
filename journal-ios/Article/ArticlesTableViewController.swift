@@ -25,10 +25,6 @@ class ArticlesTableViewController: UITableViewController {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
-        //change navigation bar item color to dustyOrange
-        self.navigationController?.navigationBar.tintColor = UIColor(r: 237, g: 96, b: 81)
-
-        
         //add addANewArticle navigationItem at rightside
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(addANewArticle(sender:)))
 
@@ -38,6 +34,9 @@ class ArticlesTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         setupNavigationTitleView()
+        
+        //change navigation bar item color to dustyOrange
+        self.navigationController?.navigationBar.tintColor = UIColor(r: 237, g: 96, b: 81)
         
         items = CoreDataHandler.fetchObject()!
         self.tableView.reloadData()
