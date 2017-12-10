@@ -20,6 +20,7 @@ class ArticleCell: UITableViewCell {
         return label
     }()
     
+    // add shadow in roundedView view instead of in pictureImageView
     let roundedView: UIView = {
         let view = UIView()
         // coolGrey

@@ -59,6 +59,19 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         return textView
     }()
     
+    // add shadow in roundedView view instead of in postButton
+    let roundedView: UIView = {
+        let view = UIView()
+        // blush
+        view.layer.shadowColor = UIColor(r: 247, g: 174, b: 163).cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: 0)
+        view.layer.shadowOpacity = 1.0
+        view.layer.shadowRadius = 10
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        return view
+    }()
+    
     lazy var postButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor(r: 237, g: 96, b: 81)
@@ -174,12 +187,18 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     func setupPostButton() {
-        view.addSubview(postButton)
+        view.addSubview(roundedView)
+        roundedView.addSubview(postButton)
         
-        postButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        postButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8).isActive = true
-        postButton.widthAnchor.constraint(equalToConstant: 160).isActive = true
-        postButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        roundedView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        roundedView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8).isActive = true
+        roundedView.widthAnchor.constraint(equalToConstant: 160).isActive = true
+        roundedView.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        
+        postButton.centerXAnchor.constraint(equalTo: roundedView.centerXAnchor).isActive = true
+        postButton.centerYAnchor.constraint(equalTo: roundedView.centerYAnchor).isActive = true
+        postButton.widthAnchor.constraint(equalTo: roundedView.widthAnchor).isActive = true
+        postButton.heightAnchor.constraint(equalTo: roundedView.heightAnchor).isActive = true
     }
     
     @objc func back(sender: UIBarButtonItem) {
