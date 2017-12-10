@@ -40,6 +40,9 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
     
     let titleTextField: UITextField = {
         let textFeild = UITextField()
+        textFeild.font = UIFont.systemFont(ofSize: 30, weight: .regular)
+        // color slate
+        textFeild.textColor = UIColor(r: 67, g: 87, b: 97)
         textFeild.translatesAutoresizingMaskIntoConstraints = false
         return textFeild
     }()
@@ -53,6 +56,9 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
     
     let contentTextField: UITextField = {
         let textFeild = UITextField()
+        textFeild.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        textFeild.textColor = UIColor(r: 131, g: 156, b: 152)
+        
         textFeild.translatesAutoresizingMaskIntoConstraints = false
         return textFeild
     }()

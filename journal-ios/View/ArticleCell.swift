@@ -13,8 +13,9 @@ class ArticleCell: UITableViewCell {
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = UIColor.black
+        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        // color slate
+        label.textColor = UIColor(r: 67, g: 87, b: 97)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -36,7 +37,6 @@ class ArticleCell: UITableViewCell {
         setupTitleLabel()
         setupPictureImageView()
 
-        
     }
     
     private func setupTitleLabel() {
