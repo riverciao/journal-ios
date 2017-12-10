@@ -54,13 +54,13 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
         return view
     }()
     
-    let contentTextField: UITextField = {
-        let textFeild = UITextField()
-        textFeild.font = UIFont.systemFont(ofSize: 18, weight: .regular)
-        textFeild.textColor = UIColor(r: 131, g: 156, b: 152)
+    let contentTextView: UITextView = {
+        let textView = UITextView()
+        textView.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        textView.textColor = UIColor(r: 131, g: 156, b: 152)
         
-        textFeild.translatesAutoresizingMaskIntoConstraints = false
-        return textFeild
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        return textView
     }()
     
     lazy var postButton: UIButton = {
@@ -77,7 +77,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
     }()
     
     @objc func UpdateArticle(sender: UIButton) {
-        guard let title = titleTextField.text, let content = contentTextField.text else {
+        guard let title = titleTextField.text, let content = contentTextView.text else {
             print("Form is not valid")
             return
         }
@@ -110,8 +110,8 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
         navigationController?.navigationBar.tintColor = .white
         
         setupPictureContainerImageView()
-        setupInputsContainerView()
         setupPostButton()
+        setupInputsContainerView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -158,11 +158,11 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
         
         inputsContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         inputsContainerView.topAnchor.constraint(equalTo: pictureContainerImageView.bottomAnchor).isActive = true
+        inputsContainerView.bottomAnchor.constraint(equalTo: postButton.topAnchor, constant: -12).isActive = true
         inputsContainerView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        inputsContainerView.heightAnchor.constraint(equalToConstant: 228).isActive = true
         
         inputsContainerView.addSubview(titleTextField)
-        inputsContainerView.addSubview(contentTextField)
+        inputsContainerView.addSubview(contentTextView)
         inputsContainerView.addSubview(titleSeparatorView)
         
         titleTextField.text = self.currentItem?.title
@@ -176,18 +176,18 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
         titleSeparatorView.widthAnchor.constraint(equalToConstant: 331).isActive = true
         titleSeparatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
         
-        contentTextField.text = self.currentItem?.content
-        contentTextField.centerXAnchor.constraint(equalTo: inputsContainerView.centerXAnchor).isActive = true
-        contentTextField.topAnchor.constraint(equalTo: titleTextField.bottomAnchor).isActive = true
-        contentTextField.widthAnchor.constraint(equalToConstant: 331).isActive = true
-        contentTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: 3/4).isActive = true
+        contentTextView.text = self.currentItem?.content
+        contentTextView.centerXAnchor.constraint(equalTo: inputsContainerView.centerXAnchor).isActive = true
+        contentTextView.topAnchor.constraint(equalTo: titleTextField.bottomAnchor).isActive = true
+        contentTextView.widthAnchor.constraint(equalToConstant: 331).isActive = true
+        contentTextView.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: 3/4).isActive = true
     }
     
     func setupPostButton() {
         view.addSubview(postButton)
         
         postButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        postButton.topAnchor.constraint(equalTo: inputsContainerView.bottomAnchor, constant: 12).isActive = true
+        postButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8).isActive = true
         postButton.widthAnchor.constraint(equalToConstant: 160).isActive = true
         postButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
     }
