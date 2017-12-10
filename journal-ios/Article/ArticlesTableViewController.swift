@@ -26,6 +26,9 @@ class ArticlesTableViewController: UITableViewController {
         //hide nav bar but show button
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
+        
+        //change navigation bar item color to dustyOrange
+        self.navigationController?.navigationBar.tintColor = UIColor(r: 237, g: 96, b: 81)
 
         
         //add addANewArticle navigationItem at rightside
