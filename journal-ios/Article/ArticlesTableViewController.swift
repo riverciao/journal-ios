@@ -19,8 +19,6 @@ class ArticlesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "My Journals"
-        
         tableView.register(ArticleCell.self, forCellReuseIdentifier: cellId)
         
         //hide nav bar but show button
@@ -39,14 +37,9 @@ class ArticlesTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        setupNavigationTitleView()
+        
         items = CoreDataHandler.fetchObject()!
-        
-        //TODO: - adjust the order of journey
-//        self.items.sort(by: { (item1, item2) -> Bool in
-//
-//            return item2.timestamp > item1.timestamp
-//        })
-        
         self.tableView.reloadData()
 
     }
@@ -107,6 +100,18 @@ class ArticlesTableViewController: UITableViewController {
             self.items = CoreDataHandler.fetchObject()!
             self.tableView.reloadData()
         }
+    }
+    
+    private func setupNavigationTitleView() {
+        let label = UILabel(frame: CGRect(x: 30, y: 0, width: 283, height: 24))
+        
+        label.text = "My Journals"
+        label.textAlignment = .left
+        label.textColor = UIColor(r: 67, g: 87, b: 97)
+        label.font =  UIFont.systemFont(ofSize: 20, weight: .semibold)
+        
+        self.navigationItem.titleView = label
+        label.translatesAutoresizingMaskIntoConstraints = false
     }
     
     
