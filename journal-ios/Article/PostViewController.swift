@@ -100,8 +100,11 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         self.view.backgroundColor = UIColor.white
         
+        let image = UIImage(named: "icon-dismiss")?.withRenderingMode(.alwaysTemplate)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image:image, style: .plain, target: self, action: #selector(back(sender:)))
+        
         //add addANewArticle navigationItem at leftside
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action: #selector(back(sender:)))
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action: #selector(back(sender:)))
         
         setupPictureContainerImageView()
         setupInputsContainerView()
