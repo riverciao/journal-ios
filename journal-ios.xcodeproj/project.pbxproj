@@ -17,7 +17,6 @@
 		5F8E0C411FDA6E63000B4651 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F8E0C251FDA6E62000B4651 /* Main.storyboard */; };
 		5F8E0C421FDA6E63000B4651 /* ArticlesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8E0C281FDA6E62000B4651 /* ArticlesTableViewController.swift */; };
 		5F8E0C431FDA6E63000B4651 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8E0C291FDA6E62000B4651 /* PostViewController.swift */; };
-		5F8E0C471FDA6E63000B4651 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F8E0C2E1FDA6E62000B4651 /* GoogleService-Info.plist */; };
 		5F8E0C4A1FDA6E63000B4651 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8E0C331FDA6E62000B4651 /* Article.swift */; };
 		5F8E0C501FDA6E63000B4651 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8E0C3B1FDA6E62000B4651 /* UIColor.swift */; };
 		5F8E0C531FDA6F9E000B4651 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F8E0C521FDA6F9E000B4651 /* Info.plist */; };
@@ -37,7 +36,6 @@
 		5F8E0C261FDA6E62000B4651 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5F8E0C281FDA6E62000B4651 /* ArticlesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesTableViewController.swift; sourceTree = "<group>"; };
 		5F8E0C291FDA6E62000B4651 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
-		5F8E0C2E1FDA6E62000B4651 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5F8E0C331FDA6E62000B4651 /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		5F8E0C3B1FDA6E62000B4651 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		5F8E0C521FDA6F9E000B4651 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -93,7 +91,6 @@
 				5F8E0C321FDA6E62000B4651 /* Model */,
 				5F8E0C3A1FDA6E62000B4651 /* UIColor */,
 				5F8E0C3C1FDA6E62000B4651 /* View */,
-				5F8E0C2E1FDA6E62000B4651 /* GoogleService-Info.plist */,
 				5F8E0C521FDA6F9E000B4651 /* Info.plist */,
 				5F8E0C221FDA6E62000B4651 /* Assets.xcassets */,
 				5F8E0C231FDA6E62000B4651 /* LaunchScreen.storyboard */,
@@ -216,7 +213,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F8E0C411FDA6E63000B4651 /* Main.storyboard in Resources */,
-				5F8E0C471FDA6E63000B4651 /* GoogleService-Info.plist in Resources */,
 				5F8E0C3F1FDA6E63000B4651 /* Assets.xcassets in Resources */,
 				5F8E0C531FDA6F9E000B4651 /* Info.plist in Resources */,
 				5F8E0C401FDA6E63000B4651 /* LaunchScreen.storyboard in Resources */,
