@@ -12,7 +12,6 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     let pictureContainerImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = UIColor(r: 26, g: 34, b: 38)
         imageView.image = #imageLiteral(resourceName: "icon_photo").withRenderingMode(.alwaysTemplate)
         imageView.tintColor = UIColor.white
         imageView.contentMode = .center
@@ -131,6 +130,9 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         UIApplication.shared.statusBarStyle = .lightContent
         
+        print(self.view.frame.width)
+        print(self.pictureContainerImageView.bounds.width)
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -142,6 +144,9 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     private func setupPictureContainerImageView() {
         view.addSubview(pictureContainerImageView)
+        
+        pictureContainerImageView.bounds = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 375)
+        pictureContainerImageView.addGradientEffect(frame: pictureContainerImageView.bounds, colors: [UIColor(r: 26, g: 34, b: 38), UIColor(r: 67, g: 87, b: 97)])
         
         pictureContainerImageView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
         pictureContainerImageView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
