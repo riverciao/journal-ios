@@ -13,6 +13,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     let pictureContainerImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = #imageLiteral(resourceName: "icon_photo").withRenderingMode(.alwaysTemplate)
+//        imageView.addGradientEffect(frame: imageView.bounds, colors: [UIColor(r: 26, g: 34, b: 38), UIColor(r: 67, g: 87, b: 97)])
         imageView.tintColor = UIColor.white
         imageView.contentMode = .center
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -228,6 +229,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             pictureContainerImageView.image = image
             pictureContainerImageView.contentMode = .scaleAspectFill
+            pictureContainerImageView.layer.sublayers?.remove(at: 0)
         }
         
         self.dismiss(animated: true, completion: nil)
